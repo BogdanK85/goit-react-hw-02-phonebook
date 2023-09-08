@@ -23,6 +23,7 @@ export class ContactForm extends Component {
     clearForm = () => {
         this.setState({ name: '', number: ''})
     }
+    
 
 render() {
     // const { name, number } = this.state;

@@ -16,6 +16,16 @@
     padding: 5px;
     border: 1px solid #000;
     border-radius: 4px;
-    background-color: rgb(190, 255, 233);
-    color: rgb(41, 18, 18);
+    background-color: rgba(223, 125, 125, 0);
+    color: #801919;
+    
+    width: 75px;
+    padding: 10px 5px;
+    font-size: 14px;
+    background-color: #011;
+    color: #0004ff;
+    cursor: pointer;
+    border-radius: 7px;
+    border: #0004ff;
+    cursor: pointer;
 }
