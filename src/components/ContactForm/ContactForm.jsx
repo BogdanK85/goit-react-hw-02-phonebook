@@ -39,7 +39,7 @@ render() {
                     required
                 />
             </Label>
-            <Label> Number
+            <Label>Number
                 <Input
                     onChange={this.handleFormInput}
                     value={this.state.number}
