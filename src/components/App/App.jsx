@@ -15,12 +15,10 @@ export class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
-    name: '',
-    number: '',
   };
   addContact = dataContact => {
     const haveContactAlready = this.state.contacts.find(
-      contact => contact.name === dataContact.name
+      contact => contact.name.toLowerCase() === dataContact.name.toLowerCase()
     );
 
     if (haveContactAlready) {
@@ -55,10 +53,6 @@ export class App extends Component {
     }));
   };
 
-  checkContactExist = () => {
-    return this.state.contacts.length;
-  };
-
   render() {
     // const { contacts } = this.state;
     const filteredContacts = this.getFilteredContacts();
@@ -72,7 +66,6 @@ export class App extends Component {
           filter={this.state.filter}
         />
         <div>
-          {this.checkContactExist() === 0}
           {this.getFilteredContacts().length > 0 ? (
             <ContactList
               contacts={filteredContacts}
