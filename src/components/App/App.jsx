@@ -8,15 +8,28 @@ import { MainTitle, SecondTitle } from './App.styled';
 
 export class App extends Component {
   state = {
-    contacts: [
-      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-    ],
+    contacts: [],
+    //  [
+    //   {id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
+    //   {id: 'id-2', name: 'Hermione Kline', number: '443-89-12'},
+    //   {id: 'id-3', name: 'Eden Clements', number: '645-17-79'},
+    //   {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
+    // ]
     filter: '',
   };
-  // console.log(state);
+
+  componentDidMount() {
+    const savedDataContacts = localStorage.getItem('contacts');
+
+    if (savedDataContacts) {
+      this.setState({ contacts: JSON.parse(savedDataContacts) });
+    }
+  }
+  componentDidUpdate(_, prevState) {
+    if (prevState.contacts.length !== this.state.contacts.length) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+  }
 
   addContact = dataContact => {
     const haveContactAlready = this.state.contacts.find(
